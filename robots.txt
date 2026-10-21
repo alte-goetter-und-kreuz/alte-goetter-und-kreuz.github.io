@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://alte-goetter-und-kreuz.github.io/sitemap.xml
