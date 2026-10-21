@@ -1,0 +1,49 @@
+name: Wöchentlichen Magazinartikel veröffentlichen
+
+on:
+  schedule:
+    - cron: '0 8 * * 4'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Website aus main laden
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Vorbereitete Artikel laden
+        uses: actions/checkout@v4
+        with:
+          repository: alte-goetter-und-kreuz/alte-goetter-und-kreuz.github.io
+          ref: redaktionsplan
+          path: _drafts
+
+      - name: Fälligen Entwurf veröffentlichen
+        id: publish
+        run: |
+          result="$(python3 scripts/publish_due_article.py --site . --drafts _drafts/drafts/articles.json)"
+          echo "$result"
+          if [[ "$result" == "No due article to publish" ]]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          slug="${result#Published }"
+          slug="${slug%% *}"
+          echo "slug=$slug" >> "$GITHUB_OUTPUT"
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Änderungen committen
+        if: steps.publish.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html sitemap.xml feed.xml "${{ steps.publish.outputs.slug }}/index.html"
+          git commit -m "Publish scheduled article: ${{ steps.publish.outputs.slug }}"
+          git push origin main
