@@ -23,10 +23,23 @@
 .recent-grid .card:first-child p{color:#f1eadd}
 .recent-grid .card:first-child .tag,.recent-grid .card:first-child a{color:#f3d9a7}
 .topic-paths .card{border-top:3px solid #ad874a}
-.topic-icon{display:grid;place-items:center;width:48px;height:48px;margin-bottom:1rem;border:1px solid #d7c4a1;border-radius:50%;background:#f7f0e1;color:#745328}
-.topic-icon svg{width:26px;height:26px}
 #magazinarchiv,#neueste-beitraege{scroll-margin-top:6rem}
 @media(max-width:650px){.recent-grid{grid-template-columns:1fr}.recent-grid .card:first-child{min-height:0;grid-row:auto}.hero-symbol{min-height:0}.hero-symbol svg{max-width:230px}.edition-head{align-items:start}}
+.topic-illustration{display:block;width:100%;height:auto;margin:0 0 1.15rem;border-radius:6px}
+:where(main,.site-head,.footer) a:focus-visible{outline:2px solid #885a20;outline-offset:4px;border-radius:2px}
+.hero a:focus-visible,.recent-grid .card:first-child a:focus-visible,.footer a:focus-visible{outline-color:#f3d9a7}
+:where(.card,.linkbox):focus-within{border-color:#a77d41;box-shadow:0 9px 22px #26332d22}
+@media(hover:hover) and (pointer:fine){
+  :where(.card,.linkbox):hover{transform:translateY(-4px);border-color:#a77d41;box-shadow:0 12px 28px #26332d24}
+  :where(main,.site-head,.footer) a:hover{text-decoration:underline;text-underline-offset:.22em;text-decoration-thickness:.1em}
+  .hero a.btn:hover{box-shadow:0 0 0 2px #eed4a0}
+}
+@media(prefers-reduced-motion:no-preference){
+  :where(.card,.linkbox){transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+}
+@media(prefers-reduced-motion:reduce){
+  :where(.card,.linkbox):hover{transform:none}
+}
 </style>
 </head><body>
 <a class="skip" href="#inhalt">Zum Inhalt</a>
@@ -72,9 +85,9 @@
 <div class="kicker">Themen im Überblick</div><h2>Christianisierung, Symbole und Runen</h2>
 <p class="lead">Drei Einstiege in die Geschichte des religiösen Wandels. Folge den Spuren in Bestattungen und Herrschaftszentren, vergleiche Kreuz und Thorhammer oder lies, wie Runen in christlichen Zusammenhängen weiterverwendet wurden.</p>
 <div class="grid">
-<article class="card"><div class="topic-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 9h14"/></svg></div><div class="tag">Überblick</div><h3>Wie wurden germanische Gruppen christlich?</h3><p>Von fränkischer Herrschaft über Mission bis zu veränderten Bestattungssitten: ein Einstieg in einen langen und regional unterschiedlichen Prozess.</p><a class="more" href="./christianisierung/">Artikel lesen →</a></article>
-<article class="card"><div class="topic-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v5h-6v10h-4V11H4z"/></svg></div><div class="tag">Symbolwandel</div><h3>Thorhammer und Kreuz</h3><p>Ein berühmter Gussformfund aus Dänemark zeigt: Ein Handwerker konnte Kreuze und Thorhämmer für unterschiedliche Kunden herstellen.</p><a class="more" href="./thorhammer-und-kreuz/">Artikel lesen →</a></article>
-<article class="card"><div class="topic-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21V3l10 5-10 5 10 8"/></svg></div><div class="tag">Schrift &amp; Zeichen</div><h3>Runen verschwanden nicht einfach</h3><p>Runenschrift und christliche Kultur schließen einander nicht grundsätzlich aus. Entscheidend sind Zeit, Region und konkreter Fundzusammenhang.</p><a class="more" href="./runen-und-christentum/">Artikel lesen →</a></article>
+<article class="card"><svg class="topic-illustration" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 360 128" width="360" height="128"><rect width="360" height="128" fill="#e5dac0"/><circle cx="264" cy="42" r="23" fill="#c59955" opacity=".63"/><path d="M0 97Q62 69 131 96T247 88Q300 63 360 76v52H0Z" fill="#87917c"/><path d="M0 113q81-27 159-3t201-15v33H0Z" fill="#465447"/><path d="M118 103V72l46-26 48 26v31z" fill="#f4e8c8" stroke="#69583e" stroke-width="2"/><path d="m110 73 54-34 56 34M164 39V24m-7 6h14M154 103V83q10-16 20 0v20" fill="none" stroke="#69583e" stroke-width="3" stroke-linecap="round"/><path d="M24 108q48-15 94-5m94 4q58-21 126-15" fill="none" stroke="#d7bf8a" opacity=".8" stroke-width="2" stroke-dasharray="3 6"/></svg><div class="tag">Überblick</div><h3>Wie wurden germanische Gruppen christlich?</h3><p>Von fränkischer Herrschaft über Mission bis zu veränderten Bestattungssitten: ein Einstieg in einen langen und regional unterschiedlichen Prozess.</p><a class="more" href="./christianisierung/">Artikel lesen →</a></article>
+<article class="card"><svg class="topic-illustration" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 360 128" width="360" height="128"><rect width="360" height="128" fill="#29372f"/><g fill="none" stroke="#a38755"><circle cx="180" cy="64" r="49" opacity=".5"/><circle cx="180" cy="64" r="59" stroke-dasharray="2 5"/><path d="M0 64h108m144 0h108M16 18h328M16 110h328" opacity=".5"/></g><g fill="#d2ab6f" stroke="#f0d4a3" stroke-width="1.5"><path d="M126 35h50v17h-18v37l-7 7-7-7V52h-18z"/><path d="M211 30h10v23h20v10h-20v34h-10V63h-20V53h20z"/></g><path d="m54 59 5 5-5 5-5-5zm252 0 5 5-5 5-5-5z" fill="#d2ab6f"/></svg><div class="tag">Symbolwandel</div><h3>Thorhammer und Kreuz</h3><p>Ein berühmter Gussformfund aus Dänemark zeigt: Ein Handwerker konnte Kreuze und Thorhämmer für unterschiedliche Kunden herstellen.</p><a class="more" href="./thorhammer-und-kreuz/">Artikel lesen →</a></article>
+<article class="card"><svg class="topic-illustration" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 360 128" width="360" height="128"><rect width="360" height="128" fill="#d9ddcc"/><circle cx="82" cy="47" r="23" fill="#c2a975" opacity=".65"/><path d="M0 98q54-20 119 1t112-5q72-21 129 2v32H0Z" fill="#84917b"/><path d="m109 109 12-48 24-30 42-11 39 22 20 67z" fill="#646e5d" stroke="#465447" stroke-width="2"/><path d="m127 102 10-37 19-25 30-9 31 18 14 53z" fill="#74816d" stroke="#c7aa72" stroke-width="1.5"/><g fill="none" stroke="#f0d6a4" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M155 83V52l15 10-15 8 15 13m13 0V52m-9 9 9-9 9 9m10 22V52l15 12m-15 0 15 12"/><path d="M147 94h73" stroke-dasharray="2 5"/></g><path d="M21 109q53-12 81-4m151-2q42-11 85 2" fill="none" stroke="#e2cf9f" stroke-width="2" stroke-dasharray="3 6"/></svg><div class="tag">Schrift &amp; Zeichen</div><h3>Runen verschwanden nicht einfach</h3><p>Runenschrift und christliche Kultur schließen einander nicht grundsätzlich aus. Entscheidend sind Zeit, Region und konkreter Fundzusammenhang.</p><a class="more" href="./runen-und-christentum/">Artikel lesen →</a></article>
 </div></div></section>
 <section class="section" id="magazinarchiv" aria-labelledby="archivtitel"><div class="wrap">
 <div class="kicker">Magazin</div><h2 id="archivtitel">Magazinarchiv</h2>
