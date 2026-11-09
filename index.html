@@ -101,8 +101,6 @@
   const filter = archive.querySelector('#archivfilter');
   const select = filter.querySelector('select');
   const cards = [...archive.querySelectorAll('.grid > article')];
-  const recent = document.querySelector('#recent-cards');
-  recent.replaceChildren(...cards.slice(0, 3).map(card => card.cloneNode(true)));
   const themes = {
     christianisierung: /christianisierung|herrschaft|mission|politik|überblick/,
     schrift: /runen|schrift|quellen|sprache/,
