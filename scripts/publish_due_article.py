@@ -90,7 +90,16 @@ def publish(site: Path, drafts: Path, today: dt.date) -> str | None:
     card = (f'<article class="card"><div class="tag">{esc(article["category"])}</div>'
             f'<h3>{esc(title)}</h3><p>{esc(article["description"])}</p>'
             f'<a class="more" href="./{slug}/">Artikel lesen →</a></article>')
-    homepage.write_text(text.replace(marker, marker + card, 1), encoding="utf-8")
+    updated = text.replace(marker, marker + card, 1)
+    recent_marker = '<div class="recent-grid" id="recent-cards">'
+    if recent_marker in updated:
+        archive_cards = re.findall(r'<article class="card">.*?</article>', updated.split(marker, 1)[1], re.S)[:3]
+        before, recent = updated.split(recent_marker, 1)
+        _, separator, after = recent.partition('</div>\n</div></section>')
+        if len(archive_cards) != 3 or not separator:
+            raise ValueError("Homepage's recent articles section could not be refreshed")
+        updated = before + recent_marker + "\n".join(archive_cards) + separator + after
+    homepage.write_text(updated, encoding="utf-8")
 
     sitemap = site / "sitemap.xml"
     xml = ET.parse(sitemap)
